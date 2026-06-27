@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fitness Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <div class="app">
+        <!-- Header -->
+        <header class="app-header">
+            <div>
+                <h1>🏃 FitTrack</h1>
+                <p class="subtitle">Track your daily fitness activities</p>
+            </div>
+            <div class="header-actions">
+                <button class="btn btn-outline btn-sm" id="clearAllBtn">🗑️ Clear All</button>
+            </div>
+        </header>
+
+        <!-- Dashboard Stats -->
+        <section class="dashboard">
+            <div class="stat-card">
+                <div class="stat-icon">🏋️</div>
+                <div class="stat-number" id="totalWorkouts">0</div>
+                <div class="stat-label">Total Workouts</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🔥</div>
+                <div class="stat-number" id="totalCalories">0</div>
+                <div class="stat-label">Calories Burned</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⏱️</div>
+                <div class="stat-number" id="totalMinutes">0</div>
+                <div class="stat-label">Total Minutes</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📅</div>
+                <div class="stat-number" id="activeDays">0</div>
+                <div class="stat-label">Active Days</div>
+            </div>
+        </section>
+
+        <!-- Progress Section -->
+        <section class="progress-section">
+            <h3>📊 Progress This Week</h3>
+            <div class="progress-item">
+                <div class="progress-label">
+                    <span>Calories Goal (2,000)</span>
+                    <span id="calProgressText">0%</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" id="calProgressFill"></div>
+                </div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-label">
+                    <span>Workout Goal (5/week)</span>
+                    <span id="wkProgressText">0%</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" id="wkProgressFill"></div>
+                </div>
+            </div>
+            <div class="progress-item">
+                <div class="progress-label">
+                    <span>Minutes Goal (150/week)</span>
+                    <span id="minProgressText">0%</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" id="minProgressFill"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs">
+            <button class="filter-btn active" data-filter="all">📋 All</button>
+            <button class="filter-btn" data-filter="today">📅 Today</button>
+            <button class="filter-btn" data-filter="week">📆 This Week</button>
+            <button class="filter-btn" data-filter="month">📊 This Month</button>
+        </div>
+
+        <!-- Add Workout Form -->
+        <section class="form-section">
+            <h3>➕ Log New Workout</h3>
+            <form id="workoutForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="exerciseType">Exercise Type</label>
+                        <select id="exerciseType" required>
+                            <option value="">Select exercise...</option>
+                            <option value="Running">🏃 Running</option>
+                            <option value="Cycling">🚴 Cycling</option>
+                            <option value="Swimming">🏊 Swimming</option>
+                            <option value="Walking">🚶 Walking</option>
+                            <option value="Yoga">🧘 Yoga</option>
+                            <option value="Weightlifting">🏋️ Weightlifting</option>
+                            <option value="Dancing">💃 Dancing</option>
+                            <option value="Hiking">🥾 Hiking</option>
+                            <option value="Boxing">🥊 Boxing</option>
+                            <option value="Other">📌 Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="duration">Duration (minutes)</label>
+                        <input type="number" id="duration" placeholder="e.g. 30" min="1" required />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="calories">Calories Burned</label>
+                        <input type="number" id="calories" placeholder="e.g. 250" min="1" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="workoutDate">Date</label>
+                        <input type="date" id="workoutDate" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="notes">Notes (optional)</label>
+                    <input type="text" id="notes" placeholder="Any additional notes..." />
+                </div>
+                <button type="submit" class="btn btn-primary">✅ Log Workout</button>
+            </form>
+        </section>
+
+        <!-- Workout Log -->
+        <section class="log-section">
+            <div class="log-header">
+                <h3>📋 Workout Log</h3>
+                <span class="log-count" id="logCount">0 entries</span>
+            </div>
+            <div id="logContainer">
+                <!-- Rendered by JavaScript -->
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
